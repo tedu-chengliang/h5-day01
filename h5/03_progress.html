@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    p{
+      font: bold 30px "Arial";
+      transition: all 0.5s;
+      opacity: 0;
+    }
+  </style>
+</head>
+<body>
+  <h2>进度条</h2>
+  <progress></progress>
+  <br><br>
+  <!-- 0~1 -->
+  <progress value="0.5"></progress>
+  <br><br>
+  <progress id="mypro"></progress>
+  <p>Welcome</p>
+  <script>
+    var pro=document.getElementById('mypro');
+    var p=document.getElementsByTagName('p')[0];
+    var v=0;
+    var timer=setInterval( ()=>{
+      v+=0.1;//每隔400毫秒v加0.1
+      //把加0.1的结果添加到进度条value属性
+      pro.value=v;
+      if(v>=1){
+        clearInterval(timer);
+        //让p显示
+        p.style.opacity='1';
+      }
+    },400 );
+  </script>
+</body>
+</html>

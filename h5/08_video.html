@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div{
+      width: 40px;
+      height: 40px;
+      background: orange;
+      border-radius: 50%;
+      font-size: 14px;
+      line-height: 40px;
+      text-align: center;
+      color:#fff;
+    }
+  </style>
+</head>
+<body>
+  <video src="https://www.w3school.com.cn/i/movie.ogg"></video>
+  <br><br>
+  <button>播放</button>
+  <button>暂停</button>
+  <div>播放</div>
+  <script>
+    var button=document.querySelectorAll('button');
+    var video=document.querySelector('video');
+    var div=document.querySelector('div');
+
+    button[0].onclick=function(){
+      video.play();
+    }
+    button[1].onclick=function(){
+      video.pause();
+    }
+    div.onclick=function(){
+      //判断内容
+      if(this.innerHTML==='播放'){
+        video.play();
+        //文字变为暂停
+        this.innerHTML='暂停'
+      }else{
+        //停下来
+        video.pause();
+        //文字变为播放
+        this.innerHTML='播放';
+      }
+    }
+    video.onended=function(){
+      alert('谢谢观看');
+    }
+  </script>
+</body>
+</html>

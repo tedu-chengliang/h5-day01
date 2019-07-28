@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div{
+      width: 100px;
+      height: 100px;
+      background: #000;
+      border:5px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <h2>调色板</h2>
+  <div></div>
+  <p>
+   <input type="range" min="0" max="255" value="0">红<br>
+   <input type="range" min="0" max="255" value="0">绿<br>
+   <input type="range" min="0" max="255" value="0">蓝<br> 
+  </p>
+  
+  <h2>html5新特性——表单input type</h2>
+  <form>
+    邮箱: <input type="email" name="myemail"><br>
+    网址: <input type="url" name="website"><br>
+    年龄: <input type="number" name="age" min="0" max="100"> <br>
+    颜色: <input type="color" name="mycolor"><br>
+    日期: <input type="date" name="mydate"><br>
+    <!-- data  month  week -->
+    搜索: <input type="search" name="kw"><br>
+    范围: <input type="range" min="0" max="50"><br>
+    <input type="submit">
+  </form>
+  <script>
+    var input=document.getElementsByTagName('p')[0].getElementsByTagName('input');
+    var div=document.getElementsByTagName('div')[0];
+    //定义三个变量，保存三个色值
+    var red=0,green=0,blue=0;
+    //给滑块绑定事件
+    input[0].onchange=function(){
+      console.log(this.value);
+      red=this.value;
+      div.style.background=`rgb(${red},${green},${blue})`;
+    }
+    input[1].onchange=function(){
+      green=this.value;
+      div.style.background=`rgb(${red},${green},${blue})`;
+    }
+    input[2].onchange=function(){
+      blue=this.value;
+      div.style.background=`rgb(${red},${green},${blue})`;
+    }
+  </script>
+</body>
+</html>

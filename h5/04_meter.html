@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    meter{
+      width: 500px;
+      height: 80px;
+    }
+  </style>
+</head>
+<body>
+  <meter min="0" max="100" value="0" low="30" high="70"></meter>
+  <p>单价: ￥18.2</p>
+  <p>数量: <input type="number" value="0" id="num"></p>
+  <output></output>
+  <script>
+    var m=document.getElementsByTagName('meter')[0];
+    var v=0;
+    var timer=setInterval( ()=>{
+      //每隔50毫秒加1
+      v++;
+      //赋给meter
+      m.value=v;
+      if(v==100){
+        clearInterval(timer);
+      }
+    },50 );
+    //计算总价
+    var num=document.getElementById('num');
+    var output=document.getElementsByTagName('output')[0];
+
+    num.onchange=function(){
+      var total=this.value*18.2;
+      //把计算的总价放入到output之间
+      output.innerHTML='￥'+total.toFixed(2);
+    }
+
+  </script>
+</body>
+</html>
